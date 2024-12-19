@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus and Blur Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-field {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Enter Your Details</h1>
+
+    <form id="form">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" class="input-field" placeholder="First Name">
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" class="input-field" placeholder="Last Name">
+    </form>
+
+    <script>
+        const fields = document.querySelectorAll('.input-field');
+
+        fields.forEach(field => {
+            const originalBackgroundColor = field.style.backgroundColor;
+
+            field.addEventListener('focus', () => {
+                field.style.backgroundColor = 'fuchsia';
+            });
+
+            field.addEventListener('blur', () => {
+                field.style.backgroundColor = originalBackgroundColor;
+            });
+        });
+    </script>
+</body>
+
+</html>
